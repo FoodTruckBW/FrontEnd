@@ -1,12 +1,10 @@
-
 import * as yup from 'yup'
 
 export default yup.object().shape({ 
-    name: yup.string().required("You must enter a name for this order").min(2, "Username must be 2 characters"), 
-    size: yup.string().required("Size of Pizza is required!"), 
-    sauce: yup.string().required("You must choose a sauce"), 
-    pepperoni: yup.boolean(),
-    cheese:yup.boolean().oneOf([true], "You must select a topping"),
-    meatLovers:yup.boolean(),
-    veggieLovers:yup.boolean()
+
+    username: yup.string().required("You must enter a name").min(6, "Username must be at least 6 characters long"), 
+    pass: yup.string().required("You must enter a password").min(6, "Password must be at least 6 characters long"), 
+    email: yup.string().required("You must enter an email"), 
+    usertype: yup.boolean()
+    
 })

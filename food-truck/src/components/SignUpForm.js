@@ -1,11 +1,13 @@
 import React, {useState,useEffect} from 'react';
 import schema from '../validation/formSchema'
+import SignUp from './SignUp'
 import * as yup from 'yup'
 
 const initialValues= { 
-    user: '',
+    username: '',
     pass: '', 
-    email: ''
+    email: '',
+    usertype: ''
 }
 
 let ordered = false
@@ -36,49 +38,83 @@ const SignUpForm = () => {
       const onSubmit = (event) => { 
           event.preventDefault()
           const newsignup= {
-            name: formValues.name.trim(),
-            size: formValues.size.trim(),
-            sauce: formValues.sauce.trim(),
-            intructions:formValues.instructions.trim(),
-            toppings: ['pepperoni', 'cheese', 'meatLovers', 'veggieLovers'].filter((topping => formValues[topping]))
-          }
+            username: formValues.username.trim(),
+            pass: formValues.pass.trim(),
+            email: formValues.email.trim(),
+            usertype:formValues.usertype.trim(),
+       }
           setsignup(newsignup)
           ordered=true
       }
+
+      if (ordered) {
+        return <SignUp signup={signup} />
+    }
+    else {
 
       return(   
         <div >
             <h2>Register</h2>
 
-            <form className='form-container' onSubmit={onSubmit}>
+            <div className='choices'>
+                    <div>
+                        <input type='radio' 
+                        name='usertype'
+                        value='Operator'
+                        checked={formValues.usertype === 'Operator'}
+                        onChange={onChange}
+                        /> Operator
+                    </div>
+                    <div>
+                        <input type='radio'
+                        name='usertype'
+                        value="Diner"
+                        checked={formValues.usertype === 'Diner'}
+                        onChange={onChange} 
+                        /> Diner
+                    </div>
+                </div>
+
+                <form className='form-container' onSubmit={onSubmit}>
             <label id='username'>
                     <h3>Username</h3> 
                     <input name='username'
-                    value={formValues.name}
+                    minLength = "6"
+                    type="text" 
+                    placeholder="Enter username here"
+                    value={formValues.username}
                     onChange={onChange}
                     />
                 </label>
-                <label id='pword'>
+                <label id='pass'>
                     <h3>Password</h3> 
-                    <input name='pword'
-                    value={formValues.pword}
+                    <input name='pass'
+                    minLength = "6"
+                    type="password" 
+                    placeholder="**********"
+                    value={formValues.pass}
                     onChange={onChange}
                     />
                 </label>
                 <label id='email'>
                     <h3>E-Mail</h3> 
                     <input name='email'
+                    type="text" 
+                    placeholder="Enter E-Mail here"
                     value={formValues.email}
                     onChange={onChange}
                     />
                 </label>
 
+                <div className='controls'>
                 <button id='submit'disabled={disabled}>Sign Up!</button> 
-                
+                </div>
 
             </form>
         </div>
       )
+    }
 }
+
 
 export default SignUpForm;

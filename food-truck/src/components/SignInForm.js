@@ -1,11 +1,12 @@
 import React, {useState,useEffect} from 'react';
 import schema from '../validation/formSchema'
+import SignIn from './SignIn'
 import * as yup from 'yup'
 
 const initialValues= { 
-    user: '',
+    username: '',
     pass: '', 
-    email: ''
+    usertype: ''
 }
 
 let ordered = false
@@ -36,36 +37,62 @@ const SignInForm = () => {
       const onSubmit = (event) => { 
           event.preventDefault()
           const newsignin= {
-            name: formValues.name.trim(),
-            size: formValues.size.trim(),
-            sauce: formValues.sauce.trim(),
-            intructions:formValues.instructions.trim(),
-            toppings: ['pepperoni', 'cheese', 'meatLovers', 'veggieLovers'].filter((topping => formValues[topping]))
+            username: formValues.username.trim(),
+            pass: formValues.pass.trim(),
+            usertype:formValues.usertype.trim()
           }
           setsignin(newsignin)
           ordered=true
       }
 
+      if (ordered) {
+        return <SignIn signin={signin} />
+    }
+    else {
+    
      return (
-        <div >
+        <div>
             <h2>Log In</h2>
+
+            <div className='choices'>
+                    <div>
+                        <input type='radio' 
+                        name='usertype'
+                        value='Operator'
+                        checked={formValues.usertype === 'Operator'}
+                        onChange={onChange}
+                        /> Operator
+                    </div>
+                    <div>
+                        <input type='radio'
+                        name='usertype'
+                        value="Diner"
+                        checked={formValues.usertype === 'Diner'}
+                        onChange={onChange} 
+                        /> Diner
+                    </div>
+                </div>
 
             <form className='form-container' onSubmit={onSubmit}>
             <label id='username'>
                     <h3>Username</h3> 
                     <input name='username'
-                    value={formValues.name}
+                    type="text" 
+                    placeholder="Enter username here"
+                    value={formValues.username}
                     onChange={onChange}
                     />
                 </label>
-                <label id='pword'>
+                <label id='pass'>
                     <h3>Password</h3> 
-                    <input name='pword'
-                    value={formValues.pword}
+                    <input name='pass'
+                    type="password" 
+                    placeholder="**********"
+                    value={formValues.pass}
                     onChange={onChange}
                     />
                 </label>
-
+                
                 <button id='submit'disabled={disabled}>Sign In!</button> 
                 
 
@@ -74,5 +101,5 @@ const SignInForm = () => {
      )
 }
 
- 
+}
 export default SignInForm;

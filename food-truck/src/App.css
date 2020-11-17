@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+h2{
+  text-align:center;
+}
+
+.choices{
+  text-align:center;
+}
+
 .form-container {
   width: 80%;
   border: 2px solid black;
@@ -25,12 +33,24 @@ label {
   margin-bottom: 10px;
   background-color: white;
 }
+#pass input {
+  width: 300px;
+}
+#pass {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: white;
+}
 
-#drop-down {
-  height: 100px;
-  display: flex;
-  align-items: center;
-  border-top: 1px solid black;
+#email input {
+  width: 300px;
+}
+#email {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: white;
 }
 
 select {
@@ -43,12 +63,6 @@ select {
   display: flex;
   flex-direction: column;
   height: 130px;
-  justify-content: space-around;
-  margin: 5px 10px 5px 10px;
-}
-.toppings {
-  display: flex;
-  height: 80px;
   justify-content: space-around;
   margin: 5px 10px 5px 10px;
 }

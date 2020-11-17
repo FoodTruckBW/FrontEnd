@@ -1,4 +1,3 @@
-  
 import React from "react";
 import {Route, Link} from "react-router-dom";
 import SignInForm from "./components/SignInForm";
@@ -24,7 +23,7 @@ const App = () => {
             <SignUpForm />
           </Route>
 
-          <Route exact path="SignIn">
+          <Route exact path="/SignIn">
             <SignInForm />
           </Route>
         
