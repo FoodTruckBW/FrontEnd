@@ -6,7 +6,6 @@ import * as yup from 'yup'
 const initialValues= { 
     username: '',
     pass: '', 
-    usertype: ''
 }
 
 let ordered = false
@@ -54,26 +53,9 @@ const SignInForm = () => {
         <div>
             <h2>Log In</h2>
 
-            <div className='choices'>
-                    <div>
-                        <input type='radio' 
-                        name='usertype'
-                        value='Operator'
-                        checked={formValues.usertype === 'Operator'}
-                        onChange={onChange}
-                        /> Operator
-                    </div>
-                    <div>
-                        <input type='radio'
-                        name='usertype'
-                        value="Diner"
-                        checked={formValues.usertype === 'Diner'}
-                        onChange={onChange} 
-                        /> Diner
-                    </div>
-                </div>
-
             <form className='form-container' onSubmit={onSubmit}>
+              
+            
             <label id='username'>
                     <h3>Username</h3> 
                     <input name='username'

@@ -56,7 +56,8 @@ const SignUpForm = () => {
         <div >
             <h2>Register</h2>
 
-            <div className='choices'>
+                <form className='form-container' onSubmit={onSubmit}>
+                <div className='choices'>
                     <div>
                         <input type='radio' 
                         name='usertype'
@@ -75,7 +76,6 @@ const SignUpForm = () => {
                     </div>
                 </div>
 
-                <form className='form-container' onSubmit={onSubmit}>
             <label id='username'>
                     <h3>Username</h3> 
                     <input name='username'
