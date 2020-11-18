@@ -1,6 +1,6 @@
 import React from "react";
 import {Route, Link} from "react-router-dom";
-import SignInForm from "./components/SignInForm";
+import LogIn from "./components/LogIn";
 import SignUpForm from "./components/SignUpForm";
 import './App.css'
 
@@ -10,10 +10,10 @@ const App = () => {
       <nav>
             <ul>
               <li>
-              <Link to="/signup">Sign Up</Link>
+              <Link to="/SignUp">Sign Up</Link>
               </li>
               <li>
-                <Link to="/signin">Sign In</Link>
+                <Link to="/LogIn">Log In</Link>
               </li>
             </ul>
           </nav>
@@ -23,8 +23,8 @@ const App = () => {
             <SignUpForm />
           </Route>
 
-          <Route exact path="/SignIn">
-            <SignInForm />
+          <Route exact path="/LogIn">
+            <LogIn />
           </Route>
         
     </div>

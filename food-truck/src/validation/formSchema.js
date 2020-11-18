@@ -1,10 +1,10 @@
 import * as yup from 'yup'
 
-export default yup.object().shape({ 
+const formSchema = yup.object().shape({
+    username : yup.string().required("Username is required"),
+    password : yup.string().required("Password is required"),
+});
 
-    username: yup.string().required("You must enter a name").min(6, "Username must be at least 6 characters long"), 
-    pass: yup.string().required("You must enter a password").min(6, "Password must be at least 6 characters long"), 
-    email: yup.string().required("You must enter an email"), 
-    usertype: yup.boolean()
-    
-})
+export default formSchema;
+
+///will not disable button if whats its looking for is never met.
