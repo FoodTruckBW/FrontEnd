@@ -78,32 +78,34 @@ export default function Login () {
   console.log(buttonDisabled)
 
   return (
-      <form onSubmit={formSubmit}>
-          <div id="parent2">
+      <form className='form-container' onSubmit={formSubmit}>
+
           <label htmlFor="username">
-              Username
               <input
               id="username"
               type="text"
               name="username"
+              placeholder="Username"
               value={login.username}
               onChange={inputChange}
               />
               {errors.username.length > 0 ? ( <p className="errors">{errors.username}</p> ) : null}
           </label>
           <label htmlFor="password">
-              Password
               <input 
               id="password"
               type="password"
               name="password"
+              placeholder="Password"
               value={login.password}
               onChange={inputChange}
               />
               {errors.password.length > 0 ? ( <p className="errors">{errors.password}</p> ) : null}
               </label>
-              <button disabled={buttonDisabled}>Login</button>
-              </div>
+
+                <div className='controls'>
+                <button disabled={buttonDisabled}>Login</button>
+                </div>
       </form>
   );
 };
